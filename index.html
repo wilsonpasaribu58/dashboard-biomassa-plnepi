@@ -1598,7 +1598,7 @@ async function rowAction(act, y){
     if(act==='restore'){ await restoreYear(y); await addLog({action:'restore',years:y}); }
     if(act==='restoreAll'){ for(const k of Object.keys(STORE.meta)) await restoreYear(k); await setIgnoreBase(false); await addLog({action:'restoreAll',years:'semua'}); }
     rebuildData(); render();
-    document.getElementById('rowMsg').innerHTML=`<div class="msg ok">${{remove:`Data tahun ${y} dihapus.`,restore:`Data tahun ${y} dikembalikan ke data bawaan.`,restoreAll:'Semua data dikembalikan ke data bawaan.'}[act]}</div>`;
+    document.getElementById('rowMsg').innerHTML=`<div class="msg ok">${({remove:`Data tahun ${y} dihapus.`,restore:`Data tahun ${y} dikembalikan ke data bawaan.`,restoreAll:'Semua data dikembalikan ke data bawaan.'})[act]}</div>`;
   }catch(e){ box.innerHTML=`<div class="msg err">Gagal (${esc(e.code||e.message)}). Coba lagi.</div>`; }
 }
 
